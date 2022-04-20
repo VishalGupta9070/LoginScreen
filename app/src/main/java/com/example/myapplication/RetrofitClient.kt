@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitClient {
     var retrofit : Retrofit?= null
-    fun getRetrofitObj(): Retrofit? {
+    fun getRetrofitObj(): Retrofit {
         val interceptor = Interceptor { chain ->
             val request = chain.request().newBuilder()
                 .header("Accept", "*/*")

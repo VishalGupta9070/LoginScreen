@@ -10,5 +10,5 @@ interface Retrofitservice {
     @Headers(
         "Content-Type: application/x-www-form-urlencoded")
     @FormUrlEncoded
-    suspend fun userLoginAsync(@Field("login_name") login_name: String, @Field("password") password: String ): Deferred<Response<User>>
+    suspend fun userLoginAsync(@Field (value = "login_name", encoded = true) login_name: String, @Field(value = "password", encoded = true) password: String ): Response<User>
 }
