@@ -6,7 +6,6 @@ import com.example.myapplication.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -22,12 +21,12 @@ binding.button.setOnClickListener {
 userLogin(binding.editTextTextPersonName.text.toString(), binding.editTextTextPassword.text.toString())
 }
     }
-    fun userLogin(login: String, password : String){
+    private fun userLogin(login: String, password : String){
         CoroutineScope(Dispatchers.Default).launch {
             val retrofitAPI = RetrofitClient()
-        val response = retrofitAPI.getRetrofitObj()?.create(Retrofitservice::class.java)?.userLogin(login,password)?.await()
+        val response = retrofitAPI.getRetrofitObj()?.create(Retrofitservice::class.java)?.userLoginAsync(login,password)?.await()
             if (response?.isSuccessful == true){
-                val user = response?.body()
+                val user = response.body()
         }
     }
 }

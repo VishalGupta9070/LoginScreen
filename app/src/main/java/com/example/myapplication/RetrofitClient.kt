@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitClient {
-    public var retrofit : Retrofit?= null
+    var retrofit : Retrofit?= null
     fun getRetrofitObj(): Retrofit? {
         val interceptor = Interceptor { chain ->
             val request = chain.request().newBuilder()
@@ -32,7 +32,7 @@ class RetrofitClient {
         } else {
             retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(Gson()))
-                .baseUrl("https://rcst.in:8443/")
+                .baseUrl("https://rcst.in:8443/WD_API/Login/")
                 .client(httpClient.build())
                 .build()
         }
