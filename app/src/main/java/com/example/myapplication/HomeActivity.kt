@@ -14,7 +14,11 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val user = intent.getSerializableExtra("user") as User
-        binding.nameText.text = user.emailId
-        Log.e(TAG, "onCreate: ${user.empId}", )
+        binding.userName.text = user.empName
+        Log.e(TAG, "onCreate: ${user.empName}", )
+        binding.userId.text = user.userId
+        binding.empId.text = user.empId
+        binding.emailId.text = user.emailId
+        binding.userType.text = user.userType
     }
 }

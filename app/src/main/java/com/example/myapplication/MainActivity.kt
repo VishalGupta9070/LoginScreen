@@ -40,6 +40,7 @@ userLogin(binding.editTextTextPersonName.text.toString(), binding.editTextTextPa
                     Log.e(TAG, "userLogin: ${user?.empId}", )
                 }
         }catch (e:Exception){
+            
                 Log.e(TAG, "userLogin: ${e.message}", )
 
         }
